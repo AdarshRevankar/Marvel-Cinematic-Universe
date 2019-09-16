@@ -1,0 +1,16 @@
+$blur: 20px;
+$shadow-opacity: 0.30;
+$image: 'Data\\Image Source\\news1.jpg';
+
+body {
+    /* Primary Color    :   #ED1A23
+       Secondary Color  :   #050000
+       Accent Color     :   #FFFFFF
+    */
+    background-color: black;
+}
+
+.carousel-item img {
+    height: 100%;
+    width: 100%
+}
