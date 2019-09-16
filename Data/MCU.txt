@@ -1,0 +1,37 @@
+Main Page -> Marvel Cinematic Universe
+	Content-> New Releases, Interview Videos
+	Sub Links-> Characters, Movies, TV Shows, Follow Us
+	Hovering over sublinks should fetch some important content of that link.
+
+1. Characters
+	Content->Search by Movie Name,Series Name as option
+			 Each character thumbnail and name of character.
+	Sub Links-> Each character thumbnail when clicked should lead to a webpage containing information such as:
+		-> Bio(name of actor,powers etc)
+		-> Important Story Moments(images given below bio with previous and next buttons)
+		-> Background change(3D effect) for every MAIN MOVIE character
+		-> Related character thumbnail(from same movie) given below
+2. Movies
+	Content-> Search by movie title
+			  Each movie thumbnail and name of movie
+			  Sort by movie series or by phase
+	Sub Links -> Each movie thumbnail when clicked should lead to a webpage which has:
+			-> Poster of the movie
+			-> Trailer of the movie
+			-> Description of movie
+			-> Music Tracks links**
+			-> Character Links
+3. TV Shows
+	Content-> Search by series title
+			  Each series thumbnail and name of series
+	Sub Links -> Each movie thumbnail when clicked should lead to a webpage which has:
+			-> Poster of the series
+			-> Trailer of the series
+			-> Description of series(each season**)
+			-> Music Tracks links**
+			-> Character Links
+4. Follow Us
+	Content-> 	Dedication to Stan Lee
+				Short History of Marvel
+				Contact Info
+				Follow on Insta,FB,Youtube Channel Links
