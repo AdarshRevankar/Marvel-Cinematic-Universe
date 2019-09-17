@@ -24,7 +24,7 @@ body{
 
 #top-nav li{
     float: left;
-    background-color: #22262a
+    background-color: #111111
 }
 
 #top-nav li a {
@@ -36,13 +36,13 @@ body{
     
 }
 
-#logo{
+.logo{
     width: 13%;
     overflow:auto;
     opacity: 0.9;
 }
 
-#logo:hover{
+.logo:hover{
     opacity: 1;
 }
 
@@ -57,14 +57,14 @@ div img{
     position: fixed;
     bottom: 0;
     width: 100%; 
-    background-color: #22262a;
+    background-color: #111111;
     overflow: auto;
     box-shadow: 0 0 10px 5px rgba(225, 10, 10, 0.2);
 }
 
 .nav-bottom-bar a {
     text-decoration: none;
-    font-family: 'Roboto Condensed', sans-serif;;
+    font-family: 'Roboto Condensed', sans-serif;
 
     float: left;
     text-align: center;
@@ -76,7 +76,7 @@ div img{
 }
 
  .nav-bottom-bar a:hover {
-    background-color: #111111; 
+    background-color: #000; 
     color: #ED1A23;
 }
 
