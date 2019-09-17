@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
+
+body{
+    background-color: rgb(51,51,51);
+    padding: 0px;
+    margin:0px;
+}
+
+/* Nav Bar Style */
+#top-nav{
+    align-content: center;
+    position: fixed;
+    box-shadow: 0 0 10px 5px rgba(225, 10, 10, 0.2);
+}
+
+#top-nav ul {
+    /*Remove Style default*/
+    list-style-type: none;
+    /*Clear padding*/
+    margin: 0;
+    padding: 0;
+    
+}
+
+#top-nav li{
+    float: left;
+    background-color: #22262a
+}
+
+#top-nav li a {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    height: 60pt;
+    
+}
+
+#logo{
+    width: 13%;
+    overflow:auto;
+    opacity: 0.9;
+}
+
+#logo:hover{
+    opacity: 1;
+}
+
+/* Carosul Settings */
+div img{
+    max-width: 100% ;
+    height: auto;
+}
+
+/* Middle - Nav Bar */
+.nav-bottom-bar {
+    position: fixed;
+    bottom: 0;
+    width: 100%; 
+    background-color: #22262a;
+    overflow: auto;
+    box-shadow: 0 0 10px 5px rgba(225, 10, 10, 0.2);
+}
+
+.nav-bottom-bar a {
+    text-decoration: none;
+    font-family: 'Roboto Condensed', sans-serif;;
+
+    float: left;
+    text-align: center;
+    width: 25%;
+    padding: 30px 0 30px 0;
+    transition: all 1s ease; 
+    color: white;
+    font-size: 20px;
+}
+
+ .nav-bottom-bar a:hover {
+    background-color: #111111; 
+    color: #ED1A23;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+
+/* Footer */
+footer{
+    align-content: center;
+}
+
+/* Part i dont know 
+    Scrollbar*/
+body::-webkit-scrollbar {
+    width: 0.4em;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: darkred;
+  outline: 1px solid black;
+}
