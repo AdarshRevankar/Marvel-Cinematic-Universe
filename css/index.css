@@ -24,8 +24,8 @@ body{
 }
 
 #top-nav li{
-    float: left;
-    background-color: #111111
+  float: left;
+  background-color: #111111
 }
 
 #top-nav li a {
@@ -34,7 +34,6 @@ body{
     text-decoration: none;
     position: relative;
     height: 60pt;
-    
 }
 
 .logo{
