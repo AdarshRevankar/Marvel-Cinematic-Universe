@@ -5,10 +5,13 @@
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="css/characters.css"/>
         <link rel="icon" href="data/header_logo.png" type="image/x-icon">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700">
     </head>
+
     <body>
+        <div class="display-error">
+            <img src="data/background.jpg" height="100%"/>
+        </div>
         <!-- Navigation Bar -->
         <div class="nav-bar">
                 <a href="characters.html">Characters</a>
@@ -42,7 +45,7 @@
                         <h1>Skills</h1>
                         <ul>
                             <li>Energy
-                                <div class="container horizontal rounded">
+                                <div class="horizontal rounded">
                                         <div class="progress-bar horizontal">
                                             <div class="progress-track">
                                                 <div class="progress-fill" style="width: 80%;">
@@ -50,10 +53,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button></button>
                             </li>
                             <li>Durability
-                                <div class="container horizontal rounded">
+                                <div class="horizontal rounded">
                                         <div class="progress-bar horizontal">
                                             <div class="progress-track">
                                                 <div class="progress-fill" style="width: 90%;">
@@ -64,7 +66,7 @@
                                 </li>
                             </li>
                             <li>Strength
-                                <div class="container horizontal rounded">
+                                <div class="horizontal rounded">
                                     <div class="progress-bar horizontal">
                                         <div class="progress-track">
                                             <div class="progress-fill" style="width: 70%;">
@@ -73,24 +75,13 @@
                                     </div>
                                 </div>
                             </li>
-                            <li>Alias
-                                <div class="container horizontal rounded">
-                                    <div class="progress-bar horizontal">
-                                        <div class="progress-track">
-                                            <div class="progress-fill" style="width: 80%;">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <li>
+                                <button onclick="loadCharPage('Thanos');">&gt</button>
                             </li>
                         </ul>
                     </div>
                 </div>
-            </div>
-
+            </div>                
         </div>
-
-        
     </body>
-
 </html>

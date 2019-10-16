@@ -9,37 +9,38 @@ body{
 
 /* Nav Bar Style */
 #top-nav{
-    align-content: center;
-    position: fixed;
-    box-shadow: 0 0 10px 5px rgba(225, 10, 10, 0.2);
+  align-content: center;
+  position: fixed;
+  box-shadow: 0 0 10px 5px rgba(225, 10, 10, 0.2);
+  width: 100%;
 }
 
 #top-nav ul {
-    /*Remove Style default*/
-    list-style-type: none;
-    /*Clear padding*/
-    margin: 0;
-    padding: 0;
-    
+  /*Remove Style default*/
+  list-style-type: none;
+  /*Clear padding*/
+  margin: 0;
+  padding: 0;
 }
 
 #top-nav li{
   float: left;
-  background-color: #111111
+  background-color: #111111;
+  width:100%;
 }
 
 #top-nav li a {
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    position: relative;
-    height: 60pt;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  position: relative;
+  height: 60pt;
 }
 
 .logo{
-    width: 13%;
-    overflow:auto;
-    opacity: 0.9;
+  width: 13%;
+  overflow:auto;
+  opacity: 0.9;
 }
 
 .logo:hover{

@@ -1,0 +1,43 @@
+<html lang="en"><head>
+       <title>CodePen - Simple HTML / CSS bar-charts</title>
+        <style>
+        
+        .horizontal .progress-bar {
+          float: left;
+          height: 45px;
+          width: 100%;
+          padding: 12px 0;
+        }
+        
+        .horizontal .progress-track {
+          position: relative;
+          width: 100%;
+          height: 20px;
+          background: #ebebeb;
+        }
+        
+        .horizontal .progress-fill {
+          background: #666;
+          height: 20px;
+          width: 50%;
+        }
+        
+        .rounded .progress-track,
+        .rounded .progress-fill {
+          border-radius: 6px;
+          box-shadow: inset 0 0 5px rgba(0,0,0,.2);
+        }
+        </style>
+    </head>
+    <body>       
+        <div class="container horizontal rounded">
+            <div class="progress-bar horizontal">
+                <div class="progress-track">
+                    <div class="progress-fill" style="width: 100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
