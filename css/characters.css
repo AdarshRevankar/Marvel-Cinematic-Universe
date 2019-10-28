@@ -125,7 +125,7 @@ body{
     /* Main layout which has all the cards */
     width: 100%;
     margin: 180px 40px 180px 40px;
-    perspective: 1500px;
+    perspective: 9000px;
     font-family: 'Roboto Condensed', sans-serif;
 }
 .card {
