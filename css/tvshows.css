@@ -1,0 +1,43 @@
+.show-card{
+    width: 250px;
+	height: 480px;
+    border-radius: 6px;
+    float: left;
+	position: relative;
+	transition: 1.5s ease-in-out;
+    transform-style: preserve-3d;
+    margin: 30px;
+    text-align: center;
+    border-radius: 6px;   
+}
+
+
+.show-card img{
+    width: 250px;
+}
+
+p{
+    margin: 0;
+    padding: 0;
+}
+
+.show-name{
+    padding: 10px 10px 2px 10px;
+    font-size: 15pt;
+    color: white;
+}
+
+.show-year{
+    font-size: 12pt;
+    color: #797979;
+    padding: 2px 10px 2px 10px;
+    padding-bottom: 40px;
+}
+
+/* Animation */
+.show-card:hover{
+    transform: rotate(2deg);
+    transition: 0.3s all ease-in-out;
+    box-shadow: 0px 10px 10px black;
+    cursor: grab;
+}
