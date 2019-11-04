@@ -1,0 +1,135 @@
+html{
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    max-width: 100%;
+    overflow-x: initial;
+    
+}
+
+
+
+a:link, a:visited {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    color: white;
+    font-size: larger;
+    font-weight: 500;
+}
+
+.mainTemplate {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    position:relative;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    font-size: medium;
+}
+
+.backgroundTemplate{
+    margin: 0;
+    padding: 0;
+    height: 500px;
+    width: 95%;
+    object-fit: cover;
+    position:relative;
+    background-size: cover;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+
+}
+
+.logo {
+    height: 90px;
+    width: 180px;
+}
+
+iframe{
+    height: 500px;
+    width: 85%;
+    object-fit: cover;
+    background-size: cover;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+.image-header {
+    padding-left: 20px;
+    font-size:xx-large;
+}
+
+.header{
+    text-decoration: azure;
+    margin:30px;
+    
+}
+
+.desc{
+    margin:30px;
+    
+
+}
+
+.name{
+    font-weight: bolder;
+}
+
+.main-content{
+    padding: 5px;
+    
+    background-color:#383838;
+    height: 100%;
+    width:100%;
+}
+.content{
+    position:relative;
+    margin:30px;
+    
+    
+}
+.label{
+    position: absolute;
+    
+}
+.label1{
+    position: absolute;
+    top:0;
+    left:0;
+
+}
+.label2{
+    position: absolute;
+    top:0;
+    right:0;
+
+}
+.label3{
+    position: absolute;
+    bottom:20;
+    left:0;
+
+}
+.label4{
+    position: absolute;
+    bottom:20;
+    right:0;
+
+}
+.label5{
+    position: absolute;
+    bottom:50;
+    left:0;
+
+}

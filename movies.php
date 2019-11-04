@@ -21,12 +21,12 @@
                 <a href="movies.php">Movies</a>
                 <a href="index.html" style="padding-top: 0px; padding-bottom: 0px;"><img class="logo" src="data/Marvel-Logo.png" width=150px;/></a>
                 <a href="tvshows.php">TV Shows</a>
-                <a href="#">Contact us</a>
+                <a href="history.html">History</a>
         </div>    
         
         <!-- Search And drop down-->
         <div class="search-tools">
-            <input type="search" class="search" placeholder="Whom you are looking for" onkeydown="refreshContent(this.value);"/>
+            <input type="search" class="search" placeholder="Search your movie here" onkeydown="refreshContent(this.value);"/>
             <label class="search-label">
         </div>        
 

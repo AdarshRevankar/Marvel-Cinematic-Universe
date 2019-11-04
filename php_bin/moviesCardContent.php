@@ -3,8 +3,10 @@
 	$username = "root";
 	$password = "";
     $database = "marvel";
-    
-	$movie_card_split_1 = '<div class="movie-card"><img src="';
+	
+	// 1. For showing the content
+	$movie_card_split_1 = '<div class="movie-card" onclick="load_page(';
+	$movie_card_split_1_1 = ')"><img src="';
     $movie_card_split_2 = '"/><p class="movie-name"><b>';
     $movie_card_split_3 ='</b></p><p class="movie-year">';
     $movie_card_split_4 ='</p></div>';
@@ -18,17 +20,18 @@
 	// Request an Query
 	if(isset($_GET['search'])){
         $content = $_GET["search"];
-        $query1 =   "SELECT name,img_url,rel_year FROM movies where upper(name) like upper('%".$content."%') ";
+        $query1 =   "SELECT id,name,img_url,rel_year FROM movies where upper(name) like upper('%".$content."%') ";
     }
     else{
-        $query1 =   "SELECT name,img_url,rel_year FROM movies";
+        $query1 =   "SELECT id,name,img_url,rel_year FROM movies";
     }
 	$res_char = $conn->query($query1);
     
 	// Show result to html
 	if ($res_char->num_rows > 0) {
 	    while($row = $res_char->fetch_assoc()) {
-            echo $movie_card_split_1
+			echo $movie_card_split_1
+				.$row["id"].$movie_card_split_1_1
                 .$row["img_url"].$movie_card_split_2
                 .$row["name"].$movie_card_split_3
                 .$row["rel_year"].$movie_card_split_4;
