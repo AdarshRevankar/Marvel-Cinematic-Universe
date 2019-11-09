@@ -29,6 +29,11 @@
             <input type="search" class="search" placeholder="Whom you are looking for" onkeydown="refreshContent(this.value);"/>
             <label class="search-label">
         </div>        
+        <!-- <br><br><br><br> -->
+        <!-- <div class="no-results">
+            <h2>Sorry... I couldn't find anything for you.. :( </h2>
+            <img src="data/noresults.png" id="groot" width= 250px;/>"
+        </div> -->
 
         <!--Card View characters-->
         <div class="wrap">
@@ -36,6 +41,8 @@
                 include_once 'php_bin/characterCardContent.php';
             ?>
         </div>
+        
+        
         
         
         <!-- footer -->
@@ -61,4 +68,16 @@
         </footer>
 
     </body>
+    <script type="text/javascript">
+        function load_page(char_id){
+            $.ajax({
+                type: "GET",
+                url: "php_bin/characterCardContent.php",
+                data: "loadid="+char_id,
+                success: function(result) {
+                    $(".wrap").html(result);
+                }
+            });
+        }  
+    </script>
 </html>

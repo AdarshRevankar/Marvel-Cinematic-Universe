@@ -61,4 +61,16 @@
         </footer>
 
     </body>
+    <script type="text/javascript">
+        function load_page(page_id){
+        $.ajax({
+            type: "GET",
+            url: "php_bin/tvshowsCardContent.php",
+            data: "loadid="+page_id,
+            success: function(result) {
+                $(".wrap").html(result);
+            }
+        });
+    }
+    </script>
 </html>

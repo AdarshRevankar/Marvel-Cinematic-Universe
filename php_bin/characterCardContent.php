@@ -52,41 +52,238 @@
                                 </div>
                             </li>
                             <li>
-                                <button ">&gt</button>
+                                <button onclick="load_page(';
+    $card_split_7 = ');$(window).scrollTop(0);">&gt</button>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>';
-	
+
+
+    // 2. show character description
+    $char_expand_1 = '<!DOCTYPE html><html><head><style type="text/css">
+            html{
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+            body {
+                background-color: black;
+                color: white;
+                max-width: 100%;
+                overflow-x: initial;
+                margin: 0;
+                padding: 0;
+                
+            }
+            .mainTemplate {
+                position:relative;
+            }
+            .backgroundTemplate{
+    
+                height: 500px;
+                width: 95%;
+                position:sticky;
+                background-size: cover;
+            }
+            .name {
+                text-decoration: underline;
+                text-decoration-color: red;
+                font-size:xx-large;
+                font-weight:400;
+            }
+            .info {
+                color:white;
+                position: absolute;
+                right:0px;
+                bottom: 0px;
+                width: 30%;
+                height: 40%;
+                text-decoration:solid;
+            }
+            .image-header {
+                padding-left: 20px;
+                font-size:xx-large;
+            }
+            .images {
+                text-align:center !important;
+                align-items: flex-start;;
+                position: relative;
+                display: inline-block;
+                
+            }
+            .SM {
+                display: none;
+            }
+            .Powers {
+                display: none;
+            }
+            .left-button{
+                margin: 2;
+                padding: 4;
+                background-color: gray;
+                position: absolute;
+                left:0;
+                display: inline-block;
+            }
+            .right-button{
+                margin: 2;
+                padding: 4;
+                background-color: gray;
+                position: absolute;
+                right:0;
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <br><br>
+        <center>
+            <div class="mainTemplate">
+                <div class="backgroundTemplate" style=" background-image: url(';
+        $char_expand_2 = ');"/>
+                <aside class="info">
+                    <h1 class="name"><b>';
+        $char_expand_3 = '</b></h1>
+                    <p><b>';
+        $char_expand_4 = '</b></p>
+                </aside>
+            </div>
+        </center>
+        <center>
+        <h2 class="image-header">Story Moments</h2>
+        <div class="images">';
+        $char_expand_5 ='
+            <button class="left-button" onclick="plusDivsSM(-1)">&#10094;</button>
+            <button class="right-button" onclick="plusDivsSM(1)">&#10095;</button>
+        </div>
+        </center>
+        <br /><br />
+        <center>
+        <h1 class="image-header">Powers</h1>
+        <div class="images">';
+        $char_expand_6 ='
+            <button class="left-button" onclick="plusDivsPower(-1)">&#10094;</button>
+            <button class="right-button" onclick="plusDivsPower(1)">&#10095;</button>
+        </div>
+        </center>
+        <script type="text/javascript">
+            var smIndex = 1;
+            showDivsSM(smIndex);
+            
+            function plusDivsSM(n) {
+                showDivsSM(smIndex += n);
+            }
+            function showDivsSM(n) {
+                var i;
+                var x = document.getElementsByClassName("SM");
+                if (n > x.length) { smIndex = 1 }
+                if (n < 1) { smIndex = x.length }
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                x[smIndex - 1].style.display = "block";
+            }
+            var powerIndex = 1;
+            showDivsPower(powerIndex);
+            
+            
+            function plusDivsPower(n2) {
+                showDivsPower(powerIndex += n2);
+            }
+            
+            function showDivsPower(n2) {
+                var i;
+                var y = document.getElementsByClassName("Powers");
+                if (n2 > y.length) { powerIndex = 1 }
+                if (n2 < 1) { powerIndex = y.length }
+                for (i = 0; i < y.length; i++) {
+                    y[i].style.display = "none";
+                }
+                y[powerIndex - 1].style.display = "block";
+            }
+        </script>
+    </body>
+    </html>';
+
 	// Connection Handling
 	$conn = new mysqli($servername, $username, $password, $database);
 	if ($conn->connect_error) {
 	    die("Connection failed: ".$conn->connect_error);
-	}
+    }
 
+    // This is used to tell mysql server that send only the 'UTF-8' Characterset.
+	mysqli_set_charset($conn, "utf8");
+    
+    $flag = 0;
+    $char_id = 1;
 	// Request an Query
 	if(isset($_GET['search'])){
         $content = $_GET["search"];
-        $query1 =   "SELECT c.id,name,char_desc,img_url,durability, strength, energy 
+        $query1 =   "SELECT c.id,name,img_url,durability, strength, energy 
                     FROM characters c, skills s where c.id = s.id 
                     and upper(c.name) like upper('%".$content."%')";
+        $flag = 0;
     }
+    else if(isset($_GET['loadid'])){
+		$char_id = $_GET["loadid"];
+		$query1 = "SELECT id, name, char_desc, wallpaper_url FROM characters where id ='".$char_id."'";
+		$current_page = 1;
+        $flag = 1;
+	}
     else{
-        $query1 =   "SELECT c.id,name,char_desc,img_url,durability, strength, energy 
+        $query1 =   "SELECT c.id,name,img_url,durability, strength, energy 
                     FROM characters c, skills s where c.id = s.id";
+        $flag = 0;
     }
-	$res_char = $conn->query($query1);
+    $res_char = $conn->query($query1);
     
 	// Show result to html
 	if ($res_char->num_rows > 0) {
 	    while($row = $res_char->fetch_assoc()) {
-            echo $card_split_1
-                .$row['img_url'].$card_split_2
-                .$row['name'].$card_split_3
-                .$row['durability'].$card_split_4
-                .$row['strength'].$card_split_5
-                .$row['energy'].$card_split_6;
+            if($flag==0){
+                echo $card_split_1
+                    .$row['img_url'].$card_split_2
+                    .$row['name'].$card_split_3
+                    .$row['durability'].$card_split_4
+                    .$row['strength'].$card_split_5
+                    .$row['energy'].$card_split_6
+                    .$row['id'].$card_split_7;
+            }
+            else{
+                // Preparation
+                //1. STORY MOMENT
+                $num_img = 5;
+                if($char_id==13 ||$char_id==4 ||$char_id==9 ||$char_id==5 ||$char_id==3||$char_id==6){
+                    $num_img = 4;
+                }
+                $story_moment_str = '';
+                for($i=1; $i <= $num_img; $i++ ) {
+                    $story_moment_str = $story_moment_str.'<img class="SM" src="data/StoryMoments/'.$row['name'].'/'.$i.'.png"/>';
+                }
+
+                // 2. Power
+                $num_img = 4;
+                if($char_id==9 ||$char_id==1){
+                    $num_img = 3;
+                }
+                else if($char_id==5 ||$char_id==2 ||$char_id==8 ||$char_id==15){
+                    $num_img = 5;
+                }
+
+                $power_str = '';
+                for($i=1; $i <= $num_img; $i++ ) {
+                    $power_str = $power_str.'<img class="Powers" src="data/Powers/'.$row['name'].'/'.$i.'.png"/>';
+                }
+
+                // echo output
+                echo $char_expand_1
+                    .$row['wallpaper_url'].$char_expand_2
+                    .$row['name'].$char_expand_3
+                    .$row['char_desc'].$char_expand_4
+                    .$story_moment_str.$char_expand_5
+                    .$power_str.$char_expand_6;
+            }
 	    }
 	} else {
 	    echo "0 results";

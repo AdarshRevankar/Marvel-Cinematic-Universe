@@ -2,7 +2,6 @@
 
 /* Body */
 body{
-	display: flex;
 	justify-content: center;
 	align-items: center;
 	perspective: 1500px;
@@ -126,10 +125,12 @@ body{
 /* Character Card */
 .wrap{
     /* Main layout which has all the cards */
-    width: 100%;
-    margin: 180px 40px 30px 40px;
+    width: auto;
+    padding-top: 180px;
     perspective: 9000px;
     font-family: 'Roboto Condensed', sans-serif;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 
@@ -144,21 +145,28 @@ body::-webkit-scrollbar-thumb {
   outline: 0px solid black;
 }
 
-footer{
-    position: absolute;
-    bottom: -430px;
-    width: 100%;
-    padding: 30px 0 60px 0;
 
+/* Footer for all the pages */
+footer{
+    position: relative;
+    width: 100%;
+    min-height: calc(100vh - 50vh);;
+    padding: 30px 0 60px 0;
+    margin-top: 60px;
     background-color: #252525;
+    clear: left; 
+    display: flex;
 }
+
 footer svg{
-    width: 120px;
-    margin: 60px 40px 0 40px;
+    width: 80px;
+    margin: 80px 30px 0 40px;
 }
 
 footer ul{
-    width: 80%;
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: 0;
     float: left;
     color: white;
 }
@@ -177,6 +185,11 @@ footer li{
     padding: 20px 30px 20px 0;
 }
 
+footer li p a{
+    margin-left: 2px;
+    margin-right: 2px;
+}
+
 hr{
     border-style: solid;
     border-color: #454545;
@@ -191,4 +204,12 @@ hr{
         overflow: hidden;
     }
     
+}
+
+.no-results{
+    display: block
+}
+
+#groot{
+    float: left;
 }

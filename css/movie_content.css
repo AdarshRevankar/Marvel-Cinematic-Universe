@@ -1,53 +1,29 @@
-html{
-    max-width: 100%;
-    overflow-x: hidden;
-}
-
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap');
 body {
     background-color: black;
     color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     max-width: 100%;
     overflow-x: initial;
-    
-}
-
-
-
-a:link, a:visited {
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    color: white;
-    font-size: larger;
-    font-weight: 500;
+    padding: 0;
+    margin: 0;
 }
 
 .mainTemplate {
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 5px;
     position:relative;
-}
-
-.links {
-    display: flex;
-    justify-content: space-between;
-    font-size: medium;
 }
 
 .backgroundTemplate{
-    margin: 0;
-    padding: 0;
-    height: 500px;
-    width: 95%;
+    height: 300px;
+    width: 100%;
     object-fit: cover;
     position:relative;
     background-size: cover;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 20px;
 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .logo {
