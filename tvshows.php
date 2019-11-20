@@ -26,8 +26,22 @@
         
         <!-- Search And drop down-->
         <div class="search-tools">
-            <input type="search" class="search" placeholder="Search your show here" onkeydown="refreshContent(this.value);"/>
+            <input type="search" class="search" placeholder="Search your show here" onkeydown="refreshContent();"/>
             <label class="search-label">
+
+            <select id="sort-by" style=" height: 50px;
+                            padding:0px;
+                            margin:0px;
+                            margin-left:30px;
+                            border: none;
+                            background-color:#111111;
+                            color: #959595;
+                            font-family: 'Roboto Condensed', sans-serif;
+                            font-size: 20px;
+                            padding: 10px;" onchange="refreshContent();">
+                <option value="name">Name</option>
+                <option value="rel_year">Release Year</option>
+            </select>
         </div>        
 
         <!--Card View characters-->
@@ -72,5 +86,19 @@
             }
         });
     }
+
+    function refreshContent(){
+    var searchString = document.getElementsByClassName('search')[0].value;
+    var selecter = document.getElementById('sort-by');
+    var sortBy = selecter.options[selecter.selectedIndex].value;
+    $.ajax({
+        type: "GET",
+        url: "php_bin/tvshowsCardContent.php",
+        data: "search="+searchString+"&sort="+sortBy,
+        success: function(result) {
+            $(".wrap").html(result);
+        }
+    });
+}
     </script>
 </html>

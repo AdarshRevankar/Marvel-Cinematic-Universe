@@ -1,8 +1,8 @@
 <?php
-    $servername = "localhost";
-	$username = "root";
-	$password = "";
-    $database = "marvel";
+    $servername = "us-cdbr-iron-east-05.cleardb.net";
+	$username = "b0c2244faae78b";
+	$password = "6f59158e";
+    $database = "heroku_a88504e8d77c8c5";
 	
 	//----------------------------------------------------
 	// 1. For showing the content
@@ -134,8 +134,12 @@
 	// Request an Query
 	$current_page = 0;
 	if(isset($_GET['search'])){
+		$sortBy = $_GET["sort"];
         $content = $_GET["search"];
-		$query1 =   "SELECT id,name,img_url,rel_year FROM movies where upper(name) like upper('%".$content."%') ";
+		$query1 =   "SELECT id,name,img_url,rel_year,runtime FROM movies where upper(name) like upper('%".$content."%') ORDER BY ".$sortBy;
+        if($sortBy=='rel_year' || $sortBy=='runtime'){
+            $query1 = $query1.' desc';
+        };
 		$current_page = 0;
 	}
 	else if(isset($_GET['loadid'])){

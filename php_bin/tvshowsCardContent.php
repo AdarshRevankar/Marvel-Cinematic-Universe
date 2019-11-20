@@ -1,8 +1,8 @@
 <?php
-    $servername = "localhost";
-	$username = "root";
-	$password = "";
-    $database = "marvel";
+    $servername = "us-cdbr-iron-east-05.cleardb.net";
+	$username = "b0c2244faae78b";
+	$password = "6f59158e";
+    $database = "heroku_a88504e8d77c8c5";
 	
 	// 1. Show the cards card html code
 	$show_card_split_1 = '<div class="show-card" onclick="load_page(';
@@ -129,8 +129,12 @@
 	// Request an Query
 	$flag = 0;
 	if(isset($_GET['search'])){
+		$sortBy = $_GET["sort"];
         $content = $_GET["search"];
-		$query1 =   "SELECT id,name,img_url,rel_year FROM tvshows where upper(name) like upper('%".$content."%')";
+		$query1 =   "SELECT id,name,img_url,rel_year FROM tvshows where upper(name) like upper('%".$content."%') ORDER BY ".$sortBy;
+        if($sortBy=='rel_year'){
+            $query1 = $query1.' desc';
+        }
 		$flag = 0;
 	}
 	else if(isset($_GET['loadid'])){

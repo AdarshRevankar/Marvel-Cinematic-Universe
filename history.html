@@ -17,6 +17,22 @@
                 <a href="index.php" style="padding-top: 0px; padding-bottom: 0px;"><img class="logo" src="data/Marvel-Logo.png" style="width:150px";/></a>
                 <a href="tvshows.php">TV Shows</a>
                 <a href="history.html">History</a>
+
+                <select id="sort-by" style=" height: 50px;
+                        padding:0px;
+                        margin:0px;
+                        margin-left:30px;
+                        border: none;
+                        background-color:#111111;
+                        color: #959595;
+                        font-family: 'Roboto Condensed', sans-serif;
+                        font-size: 20px;
+                        padding: 10px;" onchange="refreshContent();">
+                    <option value="name">name</option>
+                    <option value="energy">energy</option>
+                    <option value="durability">durability</option>
+                    <option value="strength">strength</option>
+                </select>
         </div> 
         
         <!--Content-->

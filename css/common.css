@@ -121,7 +121,6 @@ body{
     font-size: 15pt;
 }
 
-
 /* Character Card */
 .wrap{
     /* Main layout which has all the cards */
@@ -206,10 +205,3 @@ hr{
     
 }
 
-.no-results{
-    display: block
-}
-
-#groot{
-    float: left;
-}

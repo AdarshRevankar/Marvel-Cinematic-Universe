@@ -1,8 +1,8 @@
 <?php
-    $servername = "localhost";
-	$username = "root";
-	$password = "";
-    $database = "marvel";
+    $servername = "us-cdbr-iron-east-05.cleardb.net";
+	$username = "b0c2244faae78b";
+	$password = "6f59158e";
+    $database = "heroku_a88504e8d77c8c5";
     
 	$card_split_1 = "<div class=\"card\"><div class=\"front side\" style=\"background-image: url('";
 	$card_split_2 = '\')")>
@@ -89,21 +89,25 @@
             .name {
                 text-decoration: underline;
                 text-decoration-color: red;
-                font-size:xx-large;
+                font-size:45px;
                 font-weight:400;
             }
             .info {
                 color:white;
                 position: absolute;
-                right:0px;
-                bottom: 0px;
-                width: 30%;
+                right:100px;
+                bottom: 80px;
+                width: 400px;
                 height: 40%;
                 text-decoration:solid;
+                
+            }
+            p{
+                font-size:15pt;
             }
             .image-header {
                 padding-left: 20px;
-                font-size:xx-large;
+                font-size:40pt;
             }
             .images {
                 text-align:center !important;
@@ -113,10 +117,10 @@
                 
             }
             .SM {
-                display: none;
+                width: 100%;
             }
             .Powers {
-                display: none;
+                width: 100%;
             }
             .left-button{
                 margin: 2;
@@ -145,8 +149,8 @@
                 <aside class="info">
                     <h1 class="name"><b>';
         $char_expand_3 = '</b></h1>
-                    <p><b>';
-        $char_expand_4 = '</b></p>
+                    <p>';
+        $char_expand_4 = '</p>
                 </aside>
             </div>
         </center>
@@ -219,10 +223,15 @@
     $char_id = 1;
 	// Request an Query
 	if(isset($_GET['search'])){
+        $sortBy = $_GET["sort"];
         $content = $_GET["search"];
         $query1 =   "SELECT c.id,name,img_url,durability, strength, energy 
                     FROM characters c, skills s where c.id = s.id 
-                    and upper(c.name) like upper('%".$content."%')";
+                    and upper(c.name) like upper('%".$content."%')
+                    ORDER BY ".$sortBy;
+        if($sortBy=='energy' || $sortBy == 'durability' || $sortBy == 'strength'){
+            $query1 = $query1.' desc';
+        }
         $flag = 0;
     }
     else if(isset($_GET['loadid'])){
