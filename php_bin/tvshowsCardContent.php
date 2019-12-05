@@ -1,8 +1,14 @@
 <?php
-    $servername = "us-cdbr-iron-east-05.cleardb.net";
-	$username = "b0c2244faae78b";
-	$password = "6f59158e";
-    $database = "heroku_a88504e8d77c8c5";
+    $local_servername = "localhost";
+	$local_username = "root";
+	$local_password = "";
+	$local_database = "marvel";
+	
+	// Heroku ClearDB Credientials
+	$clearDB_servername = "us-cdbr-iron-east-05.cleardb.net";
+	$clearDB_username = "b0c2244faae78b";
+	$clearDB_password = "6f59158e";
+	$clearDB_database = "heroku_a88504e8d77c8c5";
 	
 	// 1. Show the cards card html code
 	$show_card_split_1 = '<div class="show-card" onclick="load_page(';
@@ -85,8 +91,8 @@
 	<body><br><br>
 		<center>
 			<div class="mainTemplate">
-				<div class="backgroundTemplate" style=" background: url(';
-	$tvshow_content_2 = ') no-repeat center/cover;"/>
+				<div class="backgroundTemplate" style=" background: url(\'';
+	$tvshow_content_2 = '\') no-repeat center/cover;"/>
 			</div>
 		</center>
 		<br/><br/>

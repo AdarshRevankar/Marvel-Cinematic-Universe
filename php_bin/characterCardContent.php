@@ -150,8 +150,8 @@
         <br><br>
         <center>
             <div class="mainTemplate">
-                <div class="backgroundTemplate" style=" background-image: url(';
-        $char_expand_2 = ');"/>
+                <div class="backgroundTemplate" style=" background-image: url(\'';
+        $char_expand_2 = '\');"/>
                 <aside class="info">
                     <h1 class="name"><b>';
         $char_expand_3 = '</b></h1>
