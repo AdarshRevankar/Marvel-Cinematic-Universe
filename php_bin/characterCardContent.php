@@ -1,8 +1,14 @@
 <?php
-    $servername = "us-cdbr-iron-east-05.cleardb.net";
-	$username = "b0c2244faae78b";
-	$password = "6f59158e";
-    $database = "heroku_a88504e8d77c8c5";
+    $local_servername = "localhost";
+    $local_username = "root";
+    $local_password = "";
+    $local_database = "marvel";
+    
+    // Heroku ClearDB Credientials
+    $clearDB_servername = "us-cdbr-iron-east-05.cleardb.net";
+    $clearDB_username = "b0c2244faae78b";
+    $clearDB_password = "6f59158e";
+    $clearDB_database = "heroku_a88504e8d77c8c5";
     
 	$card_split_1 = "<div class=\"card\"><div class=\"front side\" style=\"background-image: url('";
 	$card_split_2 = '\')")>
@@ -211,10 +217,14 @@
     </html>';
 
 	// Connection Handling
-	$conn = new mysqli($servername, $username, $password, $database);
+	error_reporting(0);
+	$conn = new mysqli($clearDB_servername, $clearDB_username, $clearDB_password, $clearDB_database);
 	if ($conn->connect_error) {
-	    die("Connection failed: ".$conn->connect_error);
-    }
+		$conn = new mysqli($local_servername, $local_username, $local_password, $local_database);
+		if ($conn->connect_error){
+			echo "Error : Local Server Not Running";
+		}
+	}
 
     // This is used to tell mysql server that send only the 'UTF-8' Characterset.
 	mysqli_set_charset($conn, "utf8");
@@ -236,12 +246,12 @@
     }
     else if(isset($_GET['loadid'])){
 		$char_id = $_GET["loadid"];
-		$query1 = "SELECT id, name, char_desc, wallpaper_url FROM characters where id ='".$char_id."'";
+		$query1 = "SELECT id, name, char_desc, wallpaper_url, local_wallpaper_url FROM characters where id ='".$char_id."'";
 		$current_page = 1;
         $flag = 1;
 	}
     else{
-        $query1 =   "SELECT c.id,name,img_url,durability, strength, energy 
+        $query1 =   "SELECT c.id,name,img_url, local_img_url, durability, strength, energy 
                     FROM characters c, skills s where c.id = s.id";
         $flag = 0;
     }
@@ -252,7 +262,7 @@
 	    while($row = $res_char->fetch_assoc()) {
             if($flag==0){
                 echo $card_split_1
-                    .$row['img_url'].$card_split_2
+                    .$row['local_img_url'].$card_split_2
                     .$row['name'].$card_split_3
                     .$row['durability'].$card_split_4
                     .$row['strength'].$card_split_5
@@ -287,7 +297,7 @@
 
                 // echo output
                 echo $char_expand_1
-                    .$row['wallpaper_url'].$char_expand_2
+                    .$row['local_wallpaper_url'].$char_expand_2
                     .$row['name'].$char_expand_3
                     .$row['char_desc'].$char_expand_4
                     .$story_moment_str.$char_expand_5

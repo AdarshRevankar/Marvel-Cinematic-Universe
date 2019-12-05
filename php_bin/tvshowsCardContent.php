@@ -117,12 +117,14 @@
 
 	
 	// Connection Handling
-	$conn = new mysqli($servername, $username, $password, $database);
-	
+	error_reporting(0);
+	$conn = new mysqli($clearDB_servername, $clearDB_username, $clearDB_password, $clearDB_database);
 	if ($conn->connect_error) {
-	    die("Connection failed: ".$conn->connect_error);
+		$conn = new mysqli($local_servername, $local_username, $local_password, $local_database);
+		if ($conn->connect_error){
+			echo "Error : Local Server Not Running";
+		}
 	}
-
 	// This is used to tell mysql server that send only the 'UTF-8' Characterset.
 	mysqli_set_charset($conn, "utf8");
 
@@ -131,7 +133,7 @@
 	if(isset($_GET['search'])){
 		$sortBy = $_GET["sort"];
         $content = $_GET["search"];
-		$query1 =   "SELECT id,name,img_url,rel_year FROM tvshows where upper(name) like upper('%".$content."%') ORDER BY ".$sortBy;
+		$query1 =   "SELECT id,name,img_url,local_img_url,rel_year FROM tvshows where upper(name) like upper('%".$content."%') ORDER BY ".$sortBy;
         if($sortBy=='rel_year'){
             $query1 = $query1.' desc';
         }
@@ -139,12 +141,12 @@
 	}
 	else if(isset($_GET['loadid'])){
 		$tvshow_id = $_GET["loadid"];
-		$query1 =   "SELECT id, name, wallpaper_url,link1,link2,link3,desc1,desc2,desc3 from tvshows where id = '".$tvshow_id."'";
+		$query1 =   "SELECT id, name, wallpaper_url,local_wallpaper_url, link1,link2,link3,desc1,desc2,desc3 from tvshows where id = '".$tvshow_id."'";
 		$current_page = 1;
 		$flag = 1;
 	}
     else{
-		$query1 =   "SELECT id,name,img_url,rel_year FROM tvshows";
+		$query1 =   "SELECT id,name,img_url,local_img_url, rel_year FROM tvshows";
 		$flag = 0;
     }
 	$res_char = $conn->query($query1);
@@ -154,7 +156,7 @@
 	    while($row = $res_char->fetch_assoc()) {
 			if($flag == 1){
 				echo $tvshow_content_1
-					.$row["wallpaper_url"].$tvshow_content_2
+					.$row["local_wallpaper_url"].$tvshow_content_2
 					.$row["link1"].$tvshow_content_3
 					.html_entity_decode($row["desc1"], ENT_QUOTES, "UTF-8").$tvshow_content_4
 					.$row["link2"].$tvshow_content_5
@@ -166,7 +168,7 @@
 			else{
 				echo $show_card_split_1
 					.$row["id"].$show_card_split_1_1
-					.$row["img_url"].$show_card_split_2
+					.$row["local_img_url"].$show_card_split_2
 					.$row["name"].$show_card_split_3
 					.$row["rel_year"].$show_card_split_4;
 			}

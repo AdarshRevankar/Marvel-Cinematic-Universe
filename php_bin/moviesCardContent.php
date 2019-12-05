@@ -1,8 +1,14 @@
 <?php
-    $servername = "us-cdbr-iron-east-05.cleardb.net";
-	$username = "b0c2244faae78b";
-	$password = "6f59158e";
-    $database = "heroku_a88504e8d77c8c5";
+	$local_servername = "localhost";
+	$local_username = "root";
+	$local_password = "";
+	$local_database = "marvel";
+	
+	// Heroku ClearDB Credientials
+	$clearDB_servername = "us-cdbr-iron-east-05.cleardb.net";
+	$clearDB_username = "b0c2244faae78b";
+	$clearDB_password = "6f59158e";
+	$clearDB_database = "heroku_a88504e8d77c8c5";
 	
 	//----------------------------------------------------
 	// 1. For showing the content
@@ -123,9 +129,13 @@
 
 
 	// Connection Handling
-	$conn = new mysqli($servername, $username, $password, $database);
+	error_reporting(0);
+	$conn = new mysqli($clearDB_servername, $clearDB_username, $clearDB_password, $clearDB_database);
 	if ($conn->connect_error) {
-	    die("Connection failed: ".$conn->connect_error);
+		$conn = new mysqli($local_servername, $local_username, $local_password, $local_database);
+		if ($conn->connect_error){
+			echo "Error : Local Server Not Running";
+		}
 	}
 
 	// This is used to tell mysql server that send only the 'UTF-8' Characterset.
@@ -136,7 +146,7 @@
 	if(isset($_GET['search'])){
 		$sortBy = $_GET["sort"];
         $content = $_GET["search"];
-		$query1 =   "SELECT id,name,img_url,rel_year,runtime FROM movies where upper(name) like upper('%".$content."%') ORDER BY ".$sortBy;
+		$query1 =   "SELECT id,name,img_url,local_img_url, rel_year,runtime FROM movies where upper(name) like upper('%".$content."%') ORDER BY ".$sortBy;
         if($sortBy=='rel_year' || $sortBy=='runtime'){
             $query1 = $query1.' desc';
         };
@@ -144,12 +154,12 @@
 	}
 	else if(isset($_GET['loadid'])){
 		$movie_id = $_GET["loadid"];
-		$query1 =   "SELECT id,name,wallpaper_url,trailer_url,synopsis,director,writer,rating,rel_date, runtime
+		$query1 =   "SELECT id,name,wallpaper_url, local_wallpaper_url, trailer_url,synopsis,director,writer,rating,rel_date, runtime
 					FROM movies where id = '".$movie_id."'";
 		$current_page = 1;
 	}
     else{
-		$query1 = "SELECT id,name,img_url,rel_year FROM movies";
+		$query1 = "SELECT id,name,img_url,local_img_url, rel_year FROM movies";
 		$current_page = 0;
 	}
 	
@@ -161,13 +171,13 @@
 			if ($current_page == 0){
 				echo $movie_card_split_1
 				.$row["id"].$movie_card_split_1_1
-                .$row["img_url"].$movie_card_split_2
+                .$row["local_img_url"].$movie_card_split_2
                 .$row["name"].$movie_card_split_3
 				.$row["rel_year"].$movie_card_split_4;
 			}
 			else if($current_page == 1){
 				echo $return_page_1
-				.$row["wallpaper_url"].$return_page_2
+				.$row["local_wallpaper_url"].$return_page_2
 				.$row["trailer_url"].$return_page_2_1
 				.$row["synopsis"].$return_page_3
 				.$row["director"].$return_page_4
