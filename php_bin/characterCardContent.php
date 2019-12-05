@@ -235,7 +235,7 @@
 	if(isset($_GET['search'])){
         $sortBy = $_GET["sort"];
         $content = $_GET["search"];
-        $query1 =   "SELECT c.id,name,img_url,durability, strength, energy 
+        $query1 =   "SELECT c.id,name,img_url,local_img_url, durability, strength, energy 
                     FROM characters c, skills s where c.id = s.id 
                     and upper(c.name) like upper('%".$content."%')
                     ORDER BY ".$sortBy;

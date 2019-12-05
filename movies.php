@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>MCU : Characters</title>
+        <title>MCU : Movies</title>
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="css/common.css"/>
         <link rel="stylesheet" href="css/movies.css"/>
         <link rel="icon" href="data/header_logo.png" type="image/x-icon">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="js/jquery.js"></script>
         <script src="js/movies.js"></script>
     </head>
 
