@@ -19,7 +19,7 @@
         <div class="nav-bar">
                 <a href="characters.php">Characters</a>
                 <a href="movies.php">Movies</a>
-                <a href="index.php" style="padding-top: 0px; padding-bottom: 0px;">
+                <a href="index.html" style="padding-top: 0px; padding-bottom: 0px;">
                         <img class="logo" src="data/Marvel-Logo.png" width=150px;/></a>
                 <a href="tvshows.php">TV Shows</a>
                 <a href="history.html">History</a>
