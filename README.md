@@ -1,6 +1,9 @@
 # MARVEL CINEAMATIC UNIVERSE - Website
 [![version](https://img.shields.io/badge/version-1.0.1-yellow.svg)](https://semver.org)
 
+---
+# WEBSITE IS DOWN 😔 DUE TO HOSTING ISSUES
+---
 
 Developed under Visvesvaraya Technological University, Web Technology Laboratory
 
